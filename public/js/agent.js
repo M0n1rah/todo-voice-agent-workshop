@@ -436,9 +436,10 @@ export function applyPersona(personaKey) {
       speak: {
         provider: {
           type: 'deepgram',
-          model: persona.voice,
+          model: 'flux-sienna-en',
           version: 'v2',
-          expressivity: persona.expressivity,
+          speed: 1.0,
+          expressivity: 0,
         },
       },
     })
