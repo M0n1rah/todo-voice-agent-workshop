@@ -94,7 +94,15 @@ function completeItem({ item }) {
   // finished version lives on the `complete` branch.
   // ============================================================
 
-  return "The completeItem function isn't built yet. That's the workshop's Module 3 — go build me!";
+  const todo = findTodo(item);
+
+  if (!todo) {
+    return `I couldn't find anything matching "${item}" on the list.`;
+  }
+  todo.done = true;
+  notifyChange();
+  return `Marked "${todo.text}" as done. Nice.`;
+
 }
 
 function deleteItem({ item }) {
@@ -112,7 +120,14 @@ function deleteItem({ item }) {
   //      speaks your return value.
   // ============================================================
 
-  return "The deleteItem function isn't built yet. It's the second gap in Module 3!";
+  const index = todos.findIndex((t) => t === findTodo(item));
+
+  if (index === -1) {
+    return "I couldn't find this item."
+  }
+  const [removed] = todos.splice(index, 1);
+  notifyChange();
+  return "Item removed!";
 }
 
 // --- Dispatch map: function name → handler ---
