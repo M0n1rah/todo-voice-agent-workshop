@@ -317,8 +317,8 @@ function sendSettings() {
       // THINK: the LLM. Managed by Deepgram — no second API key needed.
       think: {
         provider: {
-          type: 'open_ai',
-          model: 'gpt-4o-mini',
+          type: 'anthropic',
+          model: 'claude-haiku-4-5',   // another managed model — still just one API key
           temperature: 0.7,
         },
         prompt: AGENT_PROMPT,
